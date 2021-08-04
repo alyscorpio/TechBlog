@@ -1,0 +1,22 @@
+<div class="home all-posts">
+    <div class="home-header">
+        <h6 class="home all-posts-header">Latest Blog Posts</h6>
+    </div>
+    
+
+    {{#each blog_posts as |post|}}
+    <a href="/post/{{post.id}}">
+        <div class="home blog-post">
+            <div class="home post-header">
+                <h3 class="home post-title">{{post.title}}</h3>
+                <p class="home post-content">{{post.content}}</p>
+            </div>
+            <div class="home post-details">
+                <p class="home post-user">Posted by: @{{post.user_id}}</p>
+                <p class="home post-date"> Date Posted: {{format_date post.created_at}} </p>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+
+</div>
