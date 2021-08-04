@@ -10,17 +10,28 @@ Comment.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-          },
-          comment: {
-              type: DataTypes.TEXT,
-              allowNull: false
-          },
-          user_username: {
-            type: DataTypes.STRING,
+        },
+        comment: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            field: 'created_at'
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'username',
+                key: 'id'
             },
+        },
+        post_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'post',
+                key: 'id'
+            }
         }
     },
     {
