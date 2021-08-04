@@ -1,0 +1,41 @@
+<div class="user-dashboard">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <div class="split-row">
+        <div class="half-col">
+            
+            <form class="create-new-post">
+                <h4 class="new-post-header">Create a New Post</h4>
+                <label for="post-title" class="new-post-title">Post Title:</label>
+                <br>
+                <input type="text" id="new-post-title">
+                <br>
+                <label for="post-content" class="new-post-content">Post Content:</label>
+                <br>
+                <textarea type="text" id="new-post-content"></textarea>
+                <br>
+                <button id="add-post-btn" type="submit" value="comment">Create Post</button>
+            </form>
+        </div>
+        <div class="half-col stats">
+            
+            <div class="user-stats">
+                <h4 class="user-stats-title">User Stats</h4>
+                <p class="display-username">Username: @{{user.username}}</p>
+                <p class="member-since">Member since: {{user.created_at}}</p>
+                <p class="post-count">Posts: {{user_posts.length}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-posts-container">
+        <h4 class="user-posts-header">Blog Posts</h4>
+
+        {{#each user_posts as |post|}}
+        <div class="user-post">
+            <h4 class="user-post-title"><a href="/post/{{post.id}}">Sample Title{{post.title}}</a></h4>
+            <p class="user-post-date">Posted on: {{post.created_at}}</p>
+            <a href="/dashboard/edit" class="btn edit-post">Edit this Post</a>
+        </div>
+        {{/each}}
+    </div>
+</div>

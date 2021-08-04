@@ -1,0 +1,17 @@
+<h2>Edit This Post</h2>
+<form class="edit-form">
+    <div>
+        <label for="edit-title">Edit Post Title:</label>
+        <br/>
+        <input class="edit-title" id="edit-post-title" name="edit-title" value="{{post.title}}"></input>
+        <br/>
+    </div>
+    <div>
+        <label for="edit-content">Edit Post Content:</label>
+        <br/>
+        <textarea class="edit-content" id="edit-content" name="edit-content" value="{{post.content}}"></textarea>
+        <br/>
+    </div>
+    <button class="edit-btn" type="submit">Save Edits</button>
+    <button class="delete-post-btn" type="button">Delete post</button>
+</form>
