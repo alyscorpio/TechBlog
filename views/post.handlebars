@@ -1,0 +1,39 @@
+<div class="post-page">
+    <div class="single-blog-post">
+        <div class="blog-post-header">
+            <h3 class="blog-post-title">{{title}}</h3>
+        </div>
+        <div class="blog-post-details">
+            <p class="blog-post-user">Posted by @{{user_id}} on {{format_date created_at}}</p>
+        </div>
+        <div class="blog-post-body">
+            <p class="blog-post-content">{{content}}</p>
+        </div>
+    </div>
+
+    <div class="blog-post-comments">
+
+        <form class="comment-form">
+            <h5>Leave a Comment:</h5>
+            <div class="add-comment">
+                <textarea name="new-comment" id="new-comment" placeholder="Start a discussion..."></textarea>
+                <button id="add-new-comment" type="submit" value="comment">Add Comment</button>
+            </div>
+        </form>
+
+        <div class="all-comments">
+            {{#each comments as |comment|}}
+            <div class="comment-card">
+                <p class="comment-text">{{comment.comment}}</p>
+                <div class="comment-details">
+                    <p class="comment-user">Posted by: @{{comment.user.username}}</p>
+                    <p class="comment-date">Posted on: {{format_date comment.created_at}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/comment.js"></script>
