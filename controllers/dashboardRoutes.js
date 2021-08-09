@@ -20,27 +20,33 @@ router.get('/', async (req, res) => {
                 { model: Comment }
             ]
         });
-        const posts = postData.get({plain: true});
-        res.render('dashboard', {
-            posts
+        console.log(postData);
         
+        const posts = postData.map(post=>post.get({plain:true}));
+        console.log(posts);
+        res.render('dashboard', {
+            posts,
+            logged_in: req.session.logged_in
         });
+    
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 { model: User }
             ]
         });
+        console.log(postData);
         const post = postData.get({ plain: true });
+        console.log(post);
         res.render('edit', {
-            post
-
+            post,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);

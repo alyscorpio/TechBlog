@@ -1,7 +1,7 @@
 const sequelize = require('../config/connection');
 const { Post } = require('../models');
 
-const postSeedData = require('./postData.json');
+const postSeedData = require('./post-seeds.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -10,7 +10,7 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-    console.log('\n----- Sample blog -----\n');
+    console.log('\n----- SAMPLE BLOG -----\n');
 
     process.exit(0);
 };

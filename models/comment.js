@@ -15,15 +15,15 @@ Comment.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
-        created_at: {
-            type: DataTypes.DATE,
+        created_at: { 
+            type: DataTypes.DATE, 
             field: 'created_at'
         },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
-                key: 'id'
+                key: 'id',
             },
         },
         post_id: {
@@ -43,4 +43,4 @@ Comment.init(
     }
 );
 
-module.export = Comment;
+module.exports = Comment;

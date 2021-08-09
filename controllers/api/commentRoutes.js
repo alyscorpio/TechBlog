@@ -11,28 +11,28 @@ router.post('/', async (req,res) => {
     }
 });
 
-// GET
-router.get('/', async (req, res) => {
-    try {
-        const commentData = await Comment.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['id', 'username'],
-                }
-            ],
-            order: [['created_at', 'DESC']]
-        });
+// // GET
+// router.get('/', async (req, res) => {
+//     try {
+//         const commentData = await Comment.findAll({
+//             include: [
+//                 {
+//                     model: User,
+//                     attributes: ['id', 'username'],
+//                 }
+//             ],
+//             order: [['created_at', 'DESC']]
+//         });
 
-        const comments = commentData.map((comment) =>
-        comment.get({ plain: true })
-        );
-    } catch (err) {
-        console.log(err) {
-            console.log(err);
-            res.status(500).json(err);
-        }
-    }
-});
+//         const comments = commentData.map((comment) =>
+//         comment.get({ plain: true })
+//         );
+//     } catch (err) {
+//         console.log(err) {
+//             console.log(err);
+//             res.status(500).json(err);
+//         }
+//     }
+// });
 
 module.exports = router;

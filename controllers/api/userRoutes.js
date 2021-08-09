@@ -1,16 +1,16 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
-// GET
-router.get('/:id', async (req,res) => {
-    try {
-        const userData = await User.findByPk(req.params.id);
-        const user = userData.get({ plain: true });
-        res.render('dashboard', user);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// // GET
+// router.get('/:id', async (req,res) => {
+//     try {
+//         const userData = await User.findByPk(req.params.id);
+//         const user = userData.get({ plain: true });
+//         res.render('dashboard', user);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // POST to create new user
 router.post('/', async (req,res) => {
